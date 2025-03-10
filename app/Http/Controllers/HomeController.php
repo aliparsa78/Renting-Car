@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('Frontend.index');
+        $user_type = Auth::user()->user_type;
+        if($user_type == 'user'){
+            return redirect('/');
+        }else{
+            return redirect('/back');
+        }
     }
 }
