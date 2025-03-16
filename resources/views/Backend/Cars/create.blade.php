@@ -23,17 +23,17 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Car Name">
+                                            <input type="text" name="name" class="form-control" placeholder="Car Name">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Car Moda">
+                                            <input type="text" class="form-control" name="model" placeholder="Car Model">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Car Color">
+                                            <input type="text" class="form-control" name="color" placeholder="Car Color">
                                         </div>
                                     </div>
 
@@ -42,21 +42,31 @@
                             <div class="row">
                                 <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Licens Plate">
+                                            <input type="text" class="form-control" name="licens_plate" placeholder="Licens Plate">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Price Per Day">
+                                            <input type="text" class="form-control" name="price"  placeholder="Price Per Day">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Available status">
+                                        <label for="">Available Status</label>
+                                        <div class="form-group" style="display: flex; flex-direction: row;">
+                                        <div class="radio" style="margin-right: 2rem;">
+                                            <input type="radio" name="optradio" checked>
+                                            <label> Active </label>
+                                        </div>
+                                        <div class="radio">
+                                                <input type="radio" name="optradio">
+                                                <label>Deactive </label>
+                                        </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
-                                
+                                <br>
+                                    <input type="submit" value="Add Car" class="btn btn-success">
                                 </form>
                         
                     </div>

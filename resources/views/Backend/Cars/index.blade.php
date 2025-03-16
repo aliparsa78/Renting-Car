@@ -25,10 +25,10 @@
                                         <tr>
                                             <th>CarName</th>
                                             <th>Car Status</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
                                             <th>Created at</th>
                                             <th>Updated at</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     
@@ -37,6 +37,8 @@
                                         <tr>
                                             <td>{{$category->name}}</td>
                                             <td>{{$category->available_status}}</td>
+                                            <td>{{$category->created_at}}</td>
+                                            <td>{{$category->updated_at}}</td>
                                             <td>
                                                 <a href="{{route('car_category.edit',$category->id)}}" class="btn btn-info text-white"> Edit </a>
                                             </td>
@@ -48,8 +50,6 @@
                                                     
                                                 </form>
                                             </td>
-                                            <td>{{$category->created_at}}</td>
-                                            <td>{{$category->updated_at}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
