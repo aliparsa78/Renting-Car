@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Booking car Admin page</title>
-        <base href="../public">
+        <base href="{{asset('public')}}">
     </head>
     <body class="sb-nav-fixed">
         @extends('Backend/layouts/main')
@@ -16,13 +16,15 @@
                 <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard / Add new car</li>
+                            <li class="breadcrumb-item active">dashboard / Cars / Edit</li>
                         </ol>
 
-                        <h3 class="text-info"><u>Add New Car</u></h3>
+                        <h3 class="text-info"><u>Edit Car Info</u></h3>
+                        
                        
-                        <form action="{{route('cars.store')}}" method="POST" class="bg-light p-5 contact-form" enctype="multipart/form-data">
+                        <form action="{{route('cars.update', $car->id)}}" method="POST" class="bg-light p-5 contact-form" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="row">
                                 
                                     <div class="col-md-3">
@@ -37,20 +39,20 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="">Car Name</label>
-                                            <input type="text" name="name" class="form-control" placeholder="Car Name">
+                                            <label for="">Name</label>
+                                            <input type="text" name="name" class="form-control" value="{{$car->name}}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="">Car Model</label>
-                                            <input type="text" class="form-control" name="model" placeholder="Car Model">
+                                            <label for="">Model</label>
+                                            <input type="text" class="form-control" name="model" value="{{$car->model}}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Color</label>
-                                            <input type="text" class="form-control" name="color" placeholder="Car Color">
+                                            <input type="text" class="form-control" name="color" value="{{$car->color}}">
                                         </div>
                                     </div>
 
@@ -60,18 +62,28 @@
                                 <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Licens_plate</label>
-                                            <input type="text" class="form-control" name="license_plate" placeholder="Licens Plate">
+                                            <input type="text" class="form-control" name="license_plate" value="{{$car->license_plate}}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Price per day</label>
-                                            <input type="text" class="form-control" name="price_perday"  placeholder="Price Per Day">
+                                            <input type="text" class="form-control" name="price_perday"  value="{{$car->Price_per_day}}">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <label for="">Image</label>
-                                        <input type="file" name="image" class="form-control">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <img src="{{asset('public/Car/'.$car->image)}}" width="150px" height="100px" alt="sdsdaf">
+                                                
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label for="">Image</label>
+                                                <input type="file" name="image" class="form-control">
+
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">Available Status</label>
@@ -88,9 +100,10 @@
                                         </div>
                                     </div>
                                     
+                                    
                                 </div>
                                 <br>
-                                    <input type="submit" value="Add Car" class="btn btn-success">
+                                    <input type="submit" value="Update Car" class="btn btn-success">
                                 </form>
                         
                     </div>

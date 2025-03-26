@@ -12,8 +12,8 @@ class CarCategoryController extends Controller
      */
     public function index()
     {
-        $category = CarCategory::all();
-        return view('/Backend/Cars/index',['categorys'=>$category]);
+        $categorys = CarCategory::all();
+        return view('/Backend/Cars/Category/index',compact('categorys'));
     }
 
     /**

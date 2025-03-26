@@ -17,44 +17,33 @@
                 <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard/Cars</li>
+                            <li class="breadcrumb-item active">Dashboard/Cars/Categories</li>
                         </ol>
                         <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Car Category</th>
-                                            <th>Car Name</th>
-                                            <th>Color</th>
-                                            <th>Model</th>
-                                            <th>Price Per day</th>
-                                            <th>Licens Plate</th>
-                                            <th>Image</th>
-                                            <th>Car Status</th>
-                                            
+                                            <th>Category Name</th>
+                                            <th>Status</th>
+                                            <th>Created at</th>
+                                            <th>Updated at</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                        @foreach($cars as $car)
+                                        @foreach($categorys as $category)
                                         <tr>
-                                            <td>{{$car->category->name}}</td>
-                                            <td>{{$car->name}}</td>
-                                            <td>{{$car->color}}</td>
-                                            <td>{{$car->model}}</td>
-                                            <td>{{$car->Price_per_day}}$</td>
-                                            <td>{{$car->license_plate}}</td>
+                                            <td>{{$category->name}}</td>
+                                            <td>{{$category->available_status}}</td>
+                                            <td>{{$category->created_at}}</td>
+                                            <td>{{$category->updated_at}}</td>
                                             <td>
-                                                <img src="{{asset('public/Car/'.$car->image)}}" width="150px" alt="">
-                                            </td>
-                                            <td>{{$car->available_status}}</td>
-                                            <td>
-                                                <a href="{{route('cars.edit',$car->id)}}" class="btn btn-info text-white"> Edit </a>
+                                                <a href="{{route('car_category.edit',$category->id)}}" class="btn btn-info text-white"> Edit </a>
                                             </td>
                                             <td>
-                                                <form action="{{route('cars.destroy',$car->id)}}" method="POST">
+                                                <form action="{{route('car_category.destroy',$category->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <input type="submit" class="btn btn-danger"  value="Delete"  >
