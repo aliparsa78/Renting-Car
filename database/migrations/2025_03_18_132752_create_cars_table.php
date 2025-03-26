@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            // $table->Integer('category_id')->index()->unsigned()->nullable();
-            // $table->foreign('category_id')->references('id')->on('car_categoires')->onDelete('cascade');
+            $table->Integer('category_id')->index()->unsigned()->nullable();
+            $table->foreign('category_id')->references('id')->on('car_categories')->onDelete('cascade');
             $table->string('name');
             $table->string('model');
             $table->string('color');

@@ -45,10 +45,10 @@ class CarController extends Controller
             $file = $request->file('image');
             $exe = $file->getClientOriginalExtension();
             $filename = time().'.'.$exe;
-            $file->move('public/Car',$filename);
+            $file->move('Car',$filename);
             $car->image = $filename;
             $car->save();
-            return redirect('/cars');
+            return redirect('/cars')->with('success','Car has been added successfuly !');
         }else{
             return "not image";
         }
@@ -89,13 +89,11 @@ class CarController extends Controller
             $file = $request->file('image');
             $exe = $file->getClientOriginalExtension();
             $filename = time().'.'.$exe;
-            $file->move('public/Car',$filename);
+            $file->move('Car',$filename);
             $car->image = $filename;
-        }else{
-            return "not image";
         }
         $car->update();
-        return redirect('/cars');
+        return redirect('/cars')->with('success','Car information updated successfuly! ');
     }
 
     /**
@@ -105,6 +103,11 @@ class CarController extends Controller
     {
         $car = Car::find($id);
         $car->delete();
-        return back();
+        return back()->with('danger','Car has been deleted !');
+    }
+
+    public function test(Request $req)
+    {
+        return back()->with('success','Data is correct');
     }
 }

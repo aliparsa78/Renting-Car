@@ -77,12 +77,12 @@
                                         <label for="">Available Status</label>
                                         <div class="form-group" style="display: flex; flex-direction: row;">
                                         <div class="radio" style="margin-right: 2rem;">
-                                            <input type="radio" name="status" checked>
+                                            <input type="radio" name="status" value="active" checked>
                                             <label> Active </label>
                                         </div>
                                         <div class="radio">
-                                                <input type="radio" name="status">
-                                                <label>Deactive </label>
+                                                <input type="radio" name="status"  value="inactive">
+                                                <label>Inactive </label>
                                         </div>
                                             
                                         </div>

@@ -22,7 +22,8 @@ Route::get('/', function () {
 Route::get('/back', function () {
     return view('Backend/index');
 });
-
+Route::view('/h','test');
+Route::post('/test',[CarController::class,'test']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
