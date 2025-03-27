@@ -31,7 +31,7 @@
                         text:"{{session('success')}}",
                         icon:'success',
                         showConfirmButton:false,
-                        timer: 5000,
+                        timer: 3000,
                     })
                 </script>
 
@@ -42,7 +42,7 @@
                         title:'Deleted',
                         text:"{{session('danger')}}",
                         icon:'success',
-                        timer:4000,
+                        timer:3000,
                         showConfirmButton:false,
                         color:'green',
 

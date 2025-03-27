@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->Integer('category_id')->index()->unsigned()->nullable();
+            $table->BigInteger('category_id')->index()->unsigned();
             $table->foreign('category_id')->references('id')->on('car_categories')->onDelete('cascade');
             $table->string('name');
             $table->string('model');

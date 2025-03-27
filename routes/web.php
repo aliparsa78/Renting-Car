@@ -6,6 +6,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarCategoryController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::middleware(['auth.check'])->group(function(){
     Route::get('/admin',[AdminController::class,'index']);
     Route::resource('/cars',CarController::class);
     Route::resource('/car_category',CarCategoryController::class);
+    Route::resource('/service',ServiceController::class);
 });
 
 
