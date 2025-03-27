@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Car;
 use Auth;
 
 class HomeController extends Controller
@@ -28,7 +29,7 @@ class HomeController extends Controller
         if($user_type == 'user'){
             return redirect('/');
         }else{
-            return redirect('/back');
+            return redirect('/admin');
         }
     }
 }

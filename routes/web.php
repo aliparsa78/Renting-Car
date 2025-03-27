@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarCategoryController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,16 +18,16 @@ use App\Http\Controllers\CarCategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('Frontend.index');
-});
-Route::get('/back', function () {
-    return view('Backend/index');
-});
-Route::view('/h','test');
-Route::post('/test',[CarController::class,'test']);
+
+
+Route::get('/',[FrontController::class,'index']);
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/cars',CarController::class);
-Route::resource('/car_category',CarCategoryController::class);
+Route::middleware(['auth.check'])->group(function(){
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index']);
+    Route::get('/admin',[AdminController::class,'index']);
+    Route::resource('/cars',CarController::class);
+    Route::resource('/car_category',CarCategoryController::class);
+});
+
+

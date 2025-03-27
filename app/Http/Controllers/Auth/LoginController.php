@@ -33,7 +33,7 @@ class LoginController extends Controller
         if($user_type == 'user'){
             return "/";
         }else{
-            return "/back";
+            return "/admin";
         }
     }
     /**
