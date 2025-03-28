@@ -9,7 +9,7 @@
                 
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('update_user') }}" method="POST" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('register_stp2') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -25,9 +25,7 @@
                                 @enderror
                             </div>
                         </div>
-
-
-                        
+  
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Mobile') }}</label>
 
@@ -41,6 +39,7 @@
                                 @enderror
                             </div>
                         </div>
+                        
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('ID Number') }}</label>
 

@@ -12,9 +12,10 @@
 	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
 	          <li class="nav-item"><a href="car.html" class="nav-link">Cars</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-			  @if (Route::has('login'))
-			  @auth
+			  
 			  		<li class="nav-item dropdown">
+						  @if (Route::has('login'))
+							@auth
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                            
 							<img src="{{asset('profile/'.Auth::user()->profile_path)}}" width="40px" height="40px" style="border-radius:50%;" alt="">
@@ -28,9 +29,12 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
+							<a href="user_profile" class="dropdown-item">
+								Profile
+							</a>
                         </div>
-					</li>
 						@else
+					</li>
 				
 	          <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
 	          <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
