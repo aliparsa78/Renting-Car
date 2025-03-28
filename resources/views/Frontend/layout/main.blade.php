@@ -30,7 +30,20 @@
     
 	 @include('Frontend/layout/header')
     <!-- END nav -->
-    
+              @if(Session::has('failed'))
+
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Success!</strong> {{Session::get('failed')}}
+                </div>
+                @endif
+                @if(Session::has('success'))
+
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Success!</strong> {{Session::get('success')}}
+                </div>
+                @endif
     @yield('content')
 
     @include('Frontend.layout.footer')

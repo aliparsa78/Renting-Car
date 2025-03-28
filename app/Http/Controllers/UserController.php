@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
+use Hash;
 
 class UserController extends Controller
 {
@@ -51,5 +52,19 @@ class UserController extends Controller
         }
         $user->update();
         return redirect('/dashboard');
+    }
+
+    public function changepassword(Request $request )
+    {
+        $request->validate([
+            'current_password'=>['required'],
+            'new_password'=>['required','min:8','confirmed'],
+        ]);
+        $user = Auth::user();
+        if(!Hash::check($request->current_password,$user->password)){
+            return back()->withErrors(['current_password'=>'Current password incorrect']);
+        }else{
+           return "yes";
+        }
     }
 }

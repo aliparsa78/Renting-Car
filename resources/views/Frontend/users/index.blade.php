@@ -81,9 +81,9 @@
 		          <div class="col-md-12">
 		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
 			          	<div class="icon mr-3">
-			          		<span class="icon-user-o"></span>
+			          		<span class="icon-key"></span>
 			          	</div>
-			            <p><span>Password:</span> <a href="" class="text-info">Change Password</a> </p>
+			            <p><span>Password:</span> <a href="change_pass" class="text-info">Change Password</a> </p>
 			          </div>
 		          </div>
 		         

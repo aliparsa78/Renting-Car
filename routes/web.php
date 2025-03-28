@@ -32,6 +32,8 @@ Route::middleware(['auth.check'])->group(function(){
     Route::get('/user_profile',[UserController::class,'profile']);
     Route::view('/update_user','Frontend.users.update');
     Route::post('/update_user/{id}',[UserController::class,'update_user'])->name('update_user');
+    Route::view('/change_pass','Frontend.users.changepass');
+    Route::put('/changepassword',[UserController::class,'changepassword'])->name('changepassword');
 
 
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index']);
