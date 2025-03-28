@@ -7,6 +7,7 @@ use App\Http\Controllers\CarCategoryController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::get('/',[FrontController::class,'index']);
 Auth::routes();
 
 Route::middleware(['auth.check'])->group(function(){
+    Route::get('/register2',[RegisterController::class,'register2'])->name('register2');
+    Route::post('/update_user',[RegisterController::class,'update_user'])->name('update_user');
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index']);
     Route::get('/admin',[AdminController::class,'index']);
     Route::resource('/cars',CarController::class);
